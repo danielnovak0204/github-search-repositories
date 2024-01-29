@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct GithubSearchRepositoriesApp: App {
+    private let getSearchResultsUseCase = Resolver.shared.resolve(GetSearchResultsUseCase.self)
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GithubRepositoriesView(
+                viewModel: GithubRepositoriesViewModel(getSearchResultsUseCase: getSearchResultsUseCase)
+            )
         }
     }
 }

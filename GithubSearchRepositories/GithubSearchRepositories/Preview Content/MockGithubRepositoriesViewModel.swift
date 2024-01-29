@@ -9,6 +9,9 @@ class MockGithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
     var githubRepositories = mockGithubRepositories
     var errorMessage = ""
     var isFailed = false
+    var searchTerm = ""
+    var debouncedSearchTerm = ""
+    var isLoading = false
     
     func search(_ searchTerm: String) async { }
 }

@@ -34,6 +34,7 @@
 		3881FDBA2B679D0E00FEBB7F /* MockGithubRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881FDB92B679D0E00FEBB7F /* MockGithubRepositories.swift */; };
 		3881FDBD2B67AFF600FEBB7F /* CircleAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881FDBC2B67AFF600FEBB7F /* CircleAsyncImage.swift */; };
 		3881FDBF2B67CB6E00FEBB7F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881FDBE2B67CB6E00FEBB7F /* WebView.swift */; };
+		3881FDC12B68462400FEBB7F /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881FDC02B68462400FEBB7F /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		3881FDB92B679D0E00FEBB7F /* MockGithubRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubRepositories.swift; sourceTree = "<group>"; };
 		3881FDBC2B67AFF600FEBB7F /* CircleAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAsyncImage.swift; sourceTree = "<group>"; };
 		3881FDBE2B67CB6E00FEBB7F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		3881FDC02B68462400FEBB7F /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 			children = (
 				3881FDBC2B67AFF600FEBB7F /* CircleAsyncImage.swift */,
 				3881FDBE2B67CB6E00FEBB7F /* WebView.swift */,
+				3881FDC02B68462400FEBB7F /* LoadingIndicatorView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				38142E222B6715E30060E328 /* GithubRepositoryView.swift in Sources */,
 				38142DF72B6659C50060E328 /* ApiError.swift in Sources */,
 				38142E192B6686F30060E328 /* GithubRepositoryWrapper.swift in Sources */,
+				3881FDC12B68462400FEBB7F /* LoadingIndicatorView.swift in Sources */,
 				38142DFD2B665A1E0060E328 /* Container+Domain.swift in Sources */,
 				38142E1F2B6709B00060E328 /* MockGithubRepositoriesViewModel.swift in Sources */,
 				38142E172B6678C20060E328 /* Owner.swift in Sources */,

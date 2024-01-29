@@ -10,9 +10,9 @@ struct GithubRepository: Decodable {
     let name: String
     let owner: Owner
     let htmlUrl: String
-    let description: String
+    let description: String?
     let stargazersCount: Int
-    let language: String
+    let language: String?
     
     private enum CodingKeys: String, CodingKey {
         case id

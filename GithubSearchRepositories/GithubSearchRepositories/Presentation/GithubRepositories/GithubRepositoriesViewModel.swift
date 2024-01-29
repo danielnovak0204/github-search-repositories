@@ -5,16 +5,21 @@
 //  Created by Dániel Novák on 28/01/2024.
 //
 
+import Combine
 import Foundation
 
 protocol GithubRepositoriesViewModelProtocol: ObservableObject {
-    var githubRepositories: [GithubRepositoryEntity] { get }
-    var errorMessage: String { get }
-    var isFailed: Bool { get set }
+    nonisolated var isFailed: Bool { get set }
+    nonisolated var searchTerm: String { get set }
+    nonisolated var debouncedSearchTerm: String { get }
+    nonisolated var githubRepositories: [GithubRepositoryEntity] { get }
+    nonisolated var errorMessage: String { get }
+    nonisolated var isLoading: Bool { get }
     
     func search(_ searchTerm: String) async
 }
 
+@MainActor
 class GithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
     private enum Constants {
         static let configurationErrorMessage = "Configuration error"
@@ -24,16 +29,28 @@ class GithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
         static let unknownErrorMessage = "Unknown error"
     }
     
+    @Published var isFailed = false
+    @Published var searchTerm = ""
+    @Published private(set) var debouncedSearchTerm = ""
     @Published private(set) var githubRepositories = [GithubRepositoryEntity]()
     @Published private(set) var errorMessage = ""
-    @Published var isFailed = false
+    @Published private(set) var isLoading = false
     private let getSearchResultsUseCase: GetSearchResultsUseCase
     
     init(getSearchResultsUseCase: GetSearchResultsUseCase) {
         self.getSearchResultsUseCase = getSearchResultsUseCase
+        $searchTerm
+            .removeDuplicates()
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .assign(to: &$debouncedSearchTerm)
     }
     
     func search(_ searchTerm: String) async {
+        if searchTerm.isEmpty {
+            githubRepositories = []
+            return
+        }
+        isLoading = true
         do {
             githubRepositories = try await getSearchResultsUseCase.getSearchResults(searchTerm: searchTerm)
         } catch {
@@ -46,5 +63,6 @@ class GithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
             }
             isFailed = true
         }
+        isLoading = false
     }
 }

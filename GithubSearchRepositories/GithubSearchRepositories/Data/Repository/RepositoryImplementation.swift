@@ -21,9 +21,9 @@ class RepositoryImplementation: Repository {
                 ownerName: githubRepository.owner.login,
                 avatarUrl: githubRepository.owner.avatarUrl,
                 htmlUrl: githubRepository.htmlUrl,
-                description: githubRepository.description,
+                description: githubRepository.description ?? "",
                 starsCount: githubRepository.stargazersCount,
-                language: githubRepository.language
+                language: githubRepository.language ?? ""
             )
         }
     }

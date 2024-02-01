@@ -12,7 +12,7 @@ struct GithubRepositoryView: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
-            CircleAsyncImage(urlString: entity.avatarUrl)
+            CircleAsyncImage(url: entity.avatarUrl)
                 .frame(width: 50)
             VStack(alignment: .leading) {
                 Text(entity.name)
@@ -38,5 +38,5 @@ struct GithubRepositoryView: View {
 }
 
 #Preview {
-    GithubRepositoryView(entity: mockGithubRepositories.first!)
+    GithubRepositoryView(entity: previewGithubRepositories.first!)
 }

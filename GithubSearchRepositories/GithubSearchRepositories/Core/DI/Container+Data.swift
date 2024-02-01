@@ -7,8 +7,11 @@
 
 extension Container {
     func withDataComponents() -> Self {
-        register(ApiDataSource.self) { _ in
-            ApiDataSourceImplementation()
+        register(RequestBuilder.self) { _ in
+            RequestBuilderImplementation()
+        }
+        register(ApiDataSource.self) {
+            ApiDataSourceImplementation(requestBuilder: $0.resolve(RequestBuilder.self)!)
         }
         return self
     }

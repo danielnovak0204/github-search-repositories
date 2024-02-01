@@ -1,12 +1,12 @@
 //
-//  MockGithubRepositoriesViewModel.swift
+//  PreviewGithubRepositoriesViewModel.swift
 //  GithubSearchRepositories
 //
 //  Created by Dániel Novák on 28/01/2024.
 //
 
-class MockGithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
-    var githubRepositories = mockGithubRepositories
+class PreviewGithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
+    var githubRepositories = previewGithubRepositories
     var errorMessage = ""
     var isFailed = false
     var searchTerm = ""

@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct WebView: UIViewRepresentable {
-    let urlString: String
+    let url: String
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
@@ -18,7 +18,7 @@ struct WebView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: url) else {
             return
         }
         uiView.load(URLRequest(url: url))
@@ -26,5 +26,5 @@ struct WebView: UIViewRepresentable {
 }
 
 #Preview {
-    WebView(urlString: mockGithubRepositories.first!.htmlUrl)
+    WebView(url: previewGithubRepositories.first!.htmlUrl)
 }

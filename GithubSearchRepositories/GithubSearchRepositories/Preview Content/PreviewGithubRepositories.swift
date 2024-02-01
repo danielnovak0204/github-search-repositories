@@ -1,11 +1,11 @@
 //
-//  MockGithubRepositories.swift
+//  PreviewGithubRepositories.swift
 //  GithubSearchRepositories
 //
 //  Created by Dániel Novák on 29/01/2024.
 //
 
-let mockGithubRepositories = [
+let previewGithubRepositories = [
     GithubRepositoryEntity(
         id: 76954504,
         name: "react-tetris",

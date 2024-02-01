@@ -17,6 +17,9 @@ class GetSearchResultsUseCaseImplementation: GetSearchResultsUseCase {
     }
     
     func getSearchResults(searchTerm: String) async throws -> [GithubRepositoryEntity] {
-        try await repository.getSearchResults(searchTerm: searchTerm)
+        if searchTerm.isEmpty {
+            return []
+        }
+        return try await repository.getSearchResults(searchTerm: searchTerm)
     }
 }

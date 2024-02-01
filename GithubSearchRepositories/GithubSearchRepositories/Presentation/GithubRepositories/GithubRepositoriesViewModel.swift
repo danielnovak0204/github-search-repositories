@@ -46,10 +46,6 @@ class GithubRepositoriesViewModel: GithubRepositoriesViewModelProtocol {
     }
     
     func search(_ searchTerm: String) async {
-        if searchTerm.isEmpty {
-            githubRepositories = []
-            return
-        }
         isLoading = true
         do {
             githubRepositories = try await getSearchResultsUseCase.getSearchResults(searchTerm: searchTerm)

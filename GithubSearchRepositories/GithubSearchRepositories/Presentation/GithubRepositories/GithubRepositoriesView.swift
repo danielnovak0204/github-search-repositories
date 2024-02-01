@@ -15,7 +15,7 @@ struct GithubRepositoriesView<ViewModel: GithubRepositoriesViewModelProtocol>: V
             NavigationStack {
                 List(viewModel.githubRepositories) { repository in
                     NavigationLink {
-                        WebView(urlString: repository.htmlUrl)
+                        WebView(url: repository.htmlUrl)
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationTitle(repository.name)
                             .ignoresSafeArea()
@@ -52,10 +52,10 @@ struct GithubRepositoriesView<ViewModel: GithubRepositoriesViewModelProtocol>: V
 }
 
 #Preview {
-    GithubRepositoriesView(viewModel: MockGithubRepositoriesViewModel())
+    GithubRepositoriesView(viewModel: PreviewGithubRepositoriesViewModel())
 }
 
 #Preview {
-    GithubRepositoriesView(viewModel: MockGithubRepositoriesViewModel())
+    GithubRepositoriesView(viewModel: PreviewGithubRepositoriesViewModel())
         .preferredColorScheme(.dark)
 }

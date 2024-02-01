@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CircleAsyncImage: View {
-    let urlString: String
+    let url: String
     
     var body: some View {
-        AsyncImage(url: URL(string: urlString)) { image in
+        AsyncImage(url: URL(string: url)) { image in
             image
                 .resizable()
                 .scaledToFit()
@@ -24,5 +24,5 @@ struct CircleAsyncImage: View {
 }
 
 #Preview {
-    CircleAsyncImage(urlString: mockGithubRepositories.first!.avatarUrl)
+    CircleAsyncImage(url: previewGithubRepositories.first!.avatarUrl)
 }
